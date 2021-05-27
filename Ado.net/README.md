@@ -4,7 +4,7 @@
 
     It is a module of .Net Framework which is used to establish connection between application and data sources.
   
-  ADO.NET has two main components that are used for accessing and manipulating data are:
+  ADO.NET has two main components that are used for accessing and manipulating data :
   
   |Data provider | DataSet|
   | --- | --- |
