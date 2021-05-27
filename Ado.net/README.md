@@ -1,4 +1,11 @@
-# .Net cheat sheets
+# ADO.NET
 
-### 1- Ado.Net 
-### 2- ASP.Net 
+    It is a module of .Net Framework which is used to establish connection between application and data sources.
+    
+
+
+
+# Entity Framework 
+
+      Entity Framework (EF) is an open source object-relational mapping (ORM) framework for Ado.NET
+
