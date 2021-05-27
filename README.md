@@ -13,7 +13,7 @@
    A repository is nothing but a class defined for an entity, with all the operations possible on that specific entity. 
    |One repository per entity (non-generic) | Generic repository|
    | --- | --- |
-   |This type of implementation involves the use of one repository class for each entity. For example, if you have two entities Order and Customer, each entity will have its own repository.|A generic repository is the one that can be used for all the entities, in other words it can be either used for Order or Customer or any other entity.|
+   |This type of implementation involves the use of one repository class for each entity|A generic repository is the one that can be used for all the entities|
 
 
 
