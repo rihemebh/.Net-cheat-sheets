@@ -4,7 +4,7 @@
 
     It is a module of .Net Framework which is used to establish connection between application and data sources.
   
-  ADO.NET has two main components that are used for accessing and manipulating data :
+  ADO.NET has two main components that are used for accessing and manipulating data are:
   
   |Data provider | DataSet|
   | --- | --- |
@@ -41,10 +41,13 @@
 
       Entity Framework (EF) is an open source object-relational mapping (ORM) framework for Ado.NET
       
- ## Workfolow: 
+ |<img src="https://static.javatpoint.com/tutorial/entity-framework/images/entity-framework-architecture.png" alt="archi" />|**EDM (Entity Data Model)**: It is a set of concepts that describe the structure of data Conceptual model<br/> Mapping <br/>  Storage model.<br/>**LINQ** to Entities: is a query language used to write queries against the object model. It returns entities, which are defined in the conceptual model. <br/>**Entity SQL**:  is another query language just like LINQ to Entities.|
+|---|---|
+      
+ ## Workflow: 
  
- |ModelFirst|Database First| Code First |
+ |ModelFirst|DatabaseFirst| CodeFirst |
  | --- | --- | --- |
- ||||
+ |Working on a visual diagram using the EF Designer and letting the ORM framework Entity Framework create/update the rest accordingly|building the Database and letting Entity Framework create/update the rest accordingly|writing the Data Model entity classes we’ll be using within our project and let Entity Framework generate the Database accordingly|
 
 
