@@ -37,6 +37,32 @@
 ## Architecture
 <img src="https://www.researchgate.net/profile/Syed-Rahman-5/publication/228997568/figure/fig1/AS:393865853980679@1470916345540/ADONET-Architecture.png" alt="archi" width="480" height="300"/>
 
+
+## Stored Procedures 
+
+After adding stored procedure in the sql server our SqlCommand becomes: 
+
+
+                SqlCommand cmd = new SqlCommand()
+                {
+                    CommandText = "<stored procedure namme>",
+                    Connection = connection_var,
+                    CommandType = CommandType.StoredProcedure
+                  
+                };
+                
+                //if the procedure has parameters : 
+                
+                  SqlParameter param = new SqlParameter
+                {
+                    ParameterName = "@paramname", 
+                    SqlDbType = SqlDbType.<type>, 
+                    Value = "<VALUE>",
+                    Direction = ParameterDirection.Input (or output)
+                };
+                
+                cmd.Parameters.Add(param);
+
 # Entity Framework 
 
       Entity Framework (EF) is an open source object-relational mapping (ORM) framework for Ado.NET
