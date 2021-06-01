@@ -20,8 +20,8 @@ ASP stands for : **A**ctive **S**erver **P**ages
 ## Controllers 
 
 ### Actions : 
-Actions are the Methids within a controller 
-Every methid could return an object that implements the **IActionResult** : 
+Actions are the Methods within a controller <br/>
+Every method could return an object that implements the **IActionResult** : 
 
  |ViewResult|ContentResult|RedirectToActionResult|RedirectToRouteResult|StatusCodeResult|
  |---|---|---|---|---|
