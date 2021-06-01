@@ -83,6 +83,7 @@ After adding stored procedure in the sql server our SqlCommand becomes:
  #### 1- Create Models 
   - Annotions :
   - Sql relation 
+  
 |One To One |One to Many |Many to Many | Many to One |
 |---|---|---|---|
 |||||
