@@ -51,7 +51,7 @@ We could Pass parameters to actions by :
 
 ### Retrieving Information: (In the view)
  #### ViewBag 
-      <p>
+     <p>
     Message is: @ViewBag.Message
 
     Server time is: @ViewBag.ServerTime.ToString()
@@ -60,19 +60,24 @@ We could Pass parameters to actions by :
     <p>
       Message is: @ViewData["Message"] //ViewBag.Message
       Server time is: @((DateTime)ViewData["ServerTime"])
-      </p>
+    </p>
 
   *Ps : @ in the html file means dynamic content*
 ### Routing
 
    Routing is responsible for matching incoming HTTP requests and dispatching those requests to the app's executable endpoints.
+   
+
+
+
 
 #### Route Stucture : 
 
 ``/{controller}/{action}/{id}``
 
-##### Declaration: 
-In startups file : 
+#### Declaration: 
+In startups.cs file : 
+
 ```C#
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
@@ -87,25 +92,53 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         endpoints.MapControllerRoute(
         name: "default",
-        pattern: "{action: <actionname>}/{controller:<controllername>}/{id}");
+        pattern: "{action: <actionname>}/{controller:<controllername>}/{id?}");
     });
 }
 ```
-   
+**We can use annotaions instead of the declation   ** 
 Example:
+
 ```C#
-   [Route("api/[controller]")]
+   [Route("api/[action]")]
    public class ProductsController : Controller
       {
          [HttpGet("{id}")]
          public IActionResult GetProduct(int id)
       {
         ...
-      }
+    
+      
     }
-
+    
+    [Route("api")]
+   public class CtegoryController : Controller
+      {
+         [Route("route")]
+         [ActionName("get")]
+         [HttpGet("{id}")]
+         public IActionResult GetCategories(int id)
+      {
+        ...
+    
+      
+    }
+        
 ```
 ## Passing Data from the request to the controller
 ### Model binding 
     ASP.NET Core MVC model binding converts client request data (form values, route data, query string parameters, HTTP headers) 
     into objects that the controller can handle
+## View Component
+
+@ code: C# code 
+@ comment @
+
+### Helpers 
+
+@HTML.ActionLink()
+
+@URL.Action() 
+
+...
+
