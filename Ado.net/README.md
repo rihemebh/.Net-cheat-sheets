@@ -100,6 +100,6 @@ After adding stored procedure in the sql server our SqlCommand becomes:
    
  
  
-``> update data base ``
+``> update-database ``
 <br />
 This helps you add all the updates to your server 
