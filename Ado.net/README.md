@@ -77,3 +77,29 @@ After adding stored procedure in the sql server our SqlCommand becomes:
  |Working on a visual diagram using the EF Designer and letting the ORM framework Entity Framework create/update the rest accordingly|building the Database and letting Entity Framework create/update the rest accordingly|writing the Data Model entity classes we’ll be using within our project and let Entity Framework generate the Database accordingly|
 
 
+
+###  Code First : 
+
+ #### 1- Create Models 
+            
+ 
+####  2- Create a DBcontext for your database 
+    ! you should first create a database in the sql server  than add the connectionString to your dbcontext class
+#### 3- Migrations 
+  In your package manager tap those cmd: 
+  <br />
+      `` > enable- migrations``
+   <br />
+   ``> add-migration <migration name>``
+   
+     this will create a migration for you that has 2 methods : 
+  
+        - up() contains all the sql commands that create the classes and that changes that you made 
+        - down() : contains the opposite of the up() method 
+    
+   
+ 
+ 
+``> update data base ``
+<br />
+This helps you add all the updates to your server 
