@@ -107,4 +107,5 @@ Example:
 ```
 ## Passing Data from the request to the controller
 ### Model binding 
-    ASP.NET Core MVC model binding converts client request data (form values, route data, query string parameters, HTTP headers) into objects that the controller can handle
+    ASP.NET Core MVC model binding converts client request data (form values, route data, query string parameters, HTTP headers) 
+    into objects that the controller can handle
