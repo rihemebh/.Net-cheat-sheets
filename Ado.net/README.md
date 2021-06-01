@@ -81,10 +81,17 @@ After adding stored procedure in the sql server our SqlCommand becomes:
 ###  Code First : 
 
  #### 1- Create Models 
-            
+  - Annotions :
+  - Sql relation 
+|One To One |One to Many |Many to Many | Many to One |
+|---|---|---|---|
+|||||
  
 ####  2- Create a DBcontext for your database 
     ! you should first create a database in the sql server  than add the connectionString to your dbcontext class
+    
+   dbcontext calss : ...
+    
 #### 3- Migrations 
   In your package manager tap those cmd: 
   <br />
@@ -103,3 +110,9 @@ After adding stored procedure in the sql server our SqlCommand becomes:
 ``> update-database ``
 <br />
 This helps you add all the updates to your server 
+
+
+### Operation on database 
+
+- EDM 
+- LinQ to Entity 
