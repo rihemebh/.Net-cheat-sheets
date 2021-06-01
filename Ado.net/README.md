@@ -102,7 +102,7 @@ After adding stored procedure in the sql server our SqlCommand becomes:
    
      this will create a migration for you that has 2 methods : 
   
-        - up() contains all the sql commands that create the classes and that changes that you made 
+        - up() contains all the sql queries of the changes that you made 
         - down() : contains the opposite of the up() method 
     
    
