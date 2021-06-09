@@ -41,26 +41,33 @@ We could Pass parameters to actions by :
 #### Adding Information: (In the controller)
   
  ##### ViewBag 
+  ```C#
      ViewBag.Message = “some text”;
      ViewBag.ServerTime = DateTime.Now;
+   ```  
   ##### ViewData 
-  
+  ```C#
       ViewData["Message"] = "some text";
       ViewData["ServerTime"] = DateTime.Now;
-      
+   ```  
 
 #### Retrieving Information: (In the view)
  ##### ViewBag 
-     <p>
+ ```razor
+    <p>
     Message is: @ViewBag.Message
 
     Server time is: @ViewBag.ServerTime.ToString()
     </p>
+  ```
+  
  ##### ViewData 
+   ```razor
     <p>
       Message is: @ViewData["Message"] //ViewBag.Message
       Server time is: @((DateTime)ViewData["ServerTime"])
     </p>
+   ```
 
   *Ps : @ in the html file means server-side code * [see more](https://github.com/rihemebh/.Net-cheat-sheets/blob/main/ASP.net/README.md#razor)
   
@@ -140,8 +147,6 @@ Example:
 @* comment text *@
 ``` 
 - Code 
-
-**@ code**: 
 
 Example 1 : Displaying dynamic data 
 ``` razor
@@ -226,14 +231,16 @@ return View("<htmlFileName>", Student);
 }
 ```
 
-|Generate a Label| Generate Input field| Generate Checkbox Field | Form Validation |
-|---|---|----|---|
-|``@Html.LabelFor(model=> model.Name)``|``@Html.EditorFor(model=> model.Name)``|``@Html.checkboxFor(model=> model.state)``|``@Html.ValidationSummary()``|
+|Generate a Label| Generate Input field| Generate Checkbox Field |Generate Radiobox Field| Form Validation |
+|---|---|----|---|---|
+|`` @Html.LabelFor(model=> model.Name)``|``@Html.EditorFor(model=> model.Name)``|``@Html.checkboxFor(model=> model.state)``|``@Html.checkboxFor(model=> model.state)``|``@Html.ValidationSummary()``|
 
 
 ### Specify the action to be executed after submit 
 
-``C# Html.BeginForm("<actionName>","<ControllerName>")``
+```C#
+Html.BeginForm("<actionName>","<ControllerName>") 
+```
  
 ### Annotions 
 => Costumize the form fields
