@@ -104,7 +104,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     });
 }
 ```
-**We can use annotaions instead of the declation** 
+**We can use annotaions instead of the declaration** 
 <br/>
 Example:
 
