@@ -76,19 +76,57 @@ After adding stored procedure in the sql server our SqlCommand becomes:
  | --- | --- | --- |
  |Working on a visual diagram using the EF Designer and letting the Entity Framework create/update the rest accordingly|building the Database and letting Entity Framework create/update the rest accordingly|writing the Data Model entity classes and let Entity Framework generate the Database accordingly|
 
-
+----------------------------------------------------------------------------------------------------------
 
 ###  Code First : 
 
  #### 1- Create Models 
-  - Annotions : ... 
-  - Sql relation : 
-  
-|One To One |One to Many |Many to Many | Many to One |
+  - DataAnnotions : [Annotionname]
+|Key |Column("Name", TypeName="ntext") |ForignKey("fkname")|NotMapped|
 |---|---|---|---|
-|||||
+|Specifies the primary key of the table|Specifies the column name and type|Foreign kety name |will not be mapped in the db |
+  - Relations : 
  
-####  2- Create a DBcontext for your database 
+##### 1.  One To One
+ ```C#
+ class c1 {
+ public int id {get; set;}
+ public virtual c2 c {get; set;}
+ }
+ class c2 {
+ [Key, ForeignKey("c1")]
+ public int id {get; set;}
+ public virtual c1 c {get; set;}
+ }
+ ```
+ ##### 2.  One To Many
+  ```C#
+ class c1 {
+ public int id {get; set;}
+ public virtual ICollection<c2> cs {get; set;}
+ }
+ class c2 {
+
+ public int id {get; set;}
+ public virtual c1 c {get; set;}
+ }
+ ```
+ ##### 3.  Many To Many
+
+  ```C#
+ class c1 {
+ public int id {get; set;}
+ public virtual ICollection<c2> cs {get; set;}
+ }
+ class c2 {
+
+ public int id {get; set;}
+ public virtual ICollection<c1> c {get; set;}
+ }
+ ```
+
+ 
+####  2. Create a DBcontext for your database 
     ! you should first create a database in the sql server  than add the connectionString to your dbcontext class
     
   ##### dbcontext calss : 
@@ -118,6 +156,14 @@ public DbSet<Tag> Tags { get; set; }
 
     
 #### 3- Migrations 
+##### Database Initilisations : 
+Entity framework Code First had different database initialization strategies prior to EF 4.3 like:
+- `` CreateDatabaseIfNotExists``
+- `` DropCreateDatabaseIfModelChanges`` 
+-  ``DropCreateDatabaseAlways``
+-  
+##### Automated Migrations : 
+
   In your package manager tap those cmd: 
   <br />
       `` > enable- migrations``
@@ -137,7 +183,8 @@ public DbSet<Tag> Tags { get; set; }
 This helps you add all the updates to your server 
 
 
-### Operation on database 
+
+------------------------------------------------------------------
 
 ### EDM  
 
@@ -201,6 +248,49 @@ This helps you add all the updates to your server
    
    ``` 
    
-  CRUD Operations
+ ### Operations
+  #### Using DBContext
+  ##### 1. Insert 
+  ```C#
+  // create new Standard entity object
+    var newStandard = new Standard();
+  // Assign standard name
+    newStandard.StandardName = "Standard1 ";
+  //create DBContext object
+   using (var dbCtx = new SchoolDBEntities())
+   {
+    //Add standard object into Standard DBset
+    dbCtx.Standards.Add(newStandard);
+    // call SaveChanges method to save standard into database
+    dbCtx.SaveChanges();
+    }
+  ```
   
+  ##### 2. Update
+   ```C#
+ Student stud ;
+// Get student from DB
+using (var ctx = new SchoolDBEntities())
+{ stud = ctx.Students.Where(s => s.StudentName == "New
+Student1").FirstOrDefault<Student>();
+}
+// change student name in disconnected mode (out of DBContext scope)
+if (stud != null) { stud.StudentName = "Updated Student1"; }
+//save modified entity using new DBContext
+using (var dbCtx = new SchoolDBEntities())
+{
+//Mark entity as modified
+dbCtx.Entry(stud).State = System.Data.EntityState.Modified;
+dbCtx.SaveChanges();
+}
+  ```
+ 
+ ##### 3. Delete
+    ```C#
+    using (var context = new SchoolDBEntities())
+    { context.Entry(disconnectedTeacher).State =
+    System.Data.EntityState.Deleted;
+    context.SaveChanges();
+    }
+  ```
   
