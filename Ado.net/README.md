@@ -51,7 +51,7 @@ After adding stored procedure in the sql server our SqlCommand becomes:
                   
                 };
                 
-                //if the procedure has parameters : 
+                //with parameters : 
                 
                   SqlParameter param = new SqlParameter
                 {
