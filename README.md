@@ -25,6 +25,6 @@
      all changes should be rolled back to ensure that the data remains in a valid state.
 
 
-###  [Ado.NET](https://github.com/rihemebh/.Net-cheat-sheets/tree/main/Ado.net)
-      
-###  [ASP.Net](https://github.com/rihemebh/.Net-cheat-sheets/tree/main/ASP.net)
+###  [1. Ado.NET](https://github.com/rihemebh/.Net-cheat-sheets/tree/main/Ado.net) 
+
+###  [2. ASP.Net](https://github.com/rihemebh/.Net-cheat-sheets/tree/main/ASP.net)
