@@ -81,10 +81,12 @@ After adding stored procedure in the sql server our SqlCommand becomes:
 ###  Code First : 
 
  #### 1- Create Models 
-  - DataAnnotions : [Annotionname]
+  - DataAnnotions : [annotions details]
+  
 |Key |Column("Name", TypeName="ntext") |ForignKey("fkname")|NotMapped|
 |---|---|---|---|
 |Specifies the primary key of the table|Specifies the column name and type|Foreign kety name |will not be mapped in the db |
+    
   - Relations : 
  
 ##### 1.  One To One
@@ -161,7 +163,7 @@ Entity framework Code First had different database initialization strategies pri
 - `` CreateDatabaseIfNotExists``
 - `` DropCreateDatabaseIfModelChanges`` 
 -  ``DropCreateDatabaseAlways``
--  
+
 ##### Automated Migrations : 
 
   In your package manager tap those cmd: 
@@ -286,7 +288,7 @@ dbCtx.SaveChanges();
   ```
  
  ##### 3. Delete
-    ```C#
+  ```C#
     using (var context = new SchoolDBEntities())
     { context.Entry(disconnectedTeacher).State =
     System.Data.EntityState.Deleted;
