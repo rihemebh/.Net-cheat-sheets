@@ -74,15 +74,15 @@ After adding stored procedure in the sql server our SqlCommand becomes:
  
  |ModelFirst|DatabaseFirst| CodeFirst |
  | --- | --- | --- |
- |Working on a visual diagram using the EF Designer and letting the ORM framework Entity Framework create/update the rest accordingly|building the Database and letting Entity Framework create/update the rest accordingly|writing the Data Model entity classes and let Entity Framework generate the Database accordingly|
+ |Working on a visual diagram using the EF Designer and letting the Entity Framework create/update the rest accordingly|building the Database and letting Entity Framework create/update the rest accordingly|writing the Data Model entity classes and let Entity Framework generate the Database accordingly|
 
 
 
 ###  Code First : 
 
  #### 1- Create Models 
-  - Annotions :
-  - Sql relation 
+  - Annotions : ... 
+  - Sql relation : 
   
 |One To One |One to Many |Many to Many | Many to One |
 |---|---|---|---|
