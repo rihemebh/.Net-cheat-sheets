@@ -115,5 +115,35 @@ This helps you add all the updates to your server
 
 ### Operation on database 
 
-- EDM  ..
-- LinQ to Entity ..
+#### EDM  
+
+ - EDM Structure : 
+    -  **EntityContainer** : EntityContainer EntityContainer is a wrapper for EntitySets and AssociationSets . It is an entry point for querying the model.
+    -  **EntitySet** : Container for EntityType (like the db table)
+    -  **EntityType** : datatype in the model
+    -  **AssociationSet** : Defines the relation between each entityset
+#### Quering with EDM
+- LinQ to Entity 
+   - LinQ Method 
+   ```C#
+   //Student is a model 
+   using( var context = new SchoolDBStudents() ) {
+   
+    var query = context.Students.Where(s=>s.StudentName ==  "Bill").FirstOrDefault<Student>();
+   }
+  
+   
+   ```
+   - LinQ Query
+    ```C#
+   
+   using( var context = new SchoolDBStudents() ) {
+   
+    var query = from st in context.Students
+                where st.StudentName = "Bill"
+                select st;
+    var student = query.FirstOrDefault<Student>();
+   }
+  
+   
+   ``` 
