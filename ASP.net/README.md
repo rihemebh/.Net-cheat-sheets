@@ -25,7 +25,7 @@ Every method could return an object that implements the **IActionResult** :
 
  |ViewResult|ContentResult|RedirectToActionResult|RedirectToRouteResult|StatusCodeResult|
  |---|---|---|---|---|
- |Rendering the HTMLfile <br /> returns view|Returns a message and not all the HTML page|This method is used to redirect to specified action instead of rendering the HTML <br /> returns RedirectToAction(ActionName:["name"] , ControllerName : ["name"] |Redirect to action from the specified URL defined in the route table that is defined in RouteConfig file <br/>returns RedirectToRoute(new{controller = ["controllename"], action = ["About"] })|returns http status code like 200 / 404 / 500|
+ |Rendering the HTMLfile <br /> returns view|Returns a message and not all the HTML page|Redirect to specified action instead of rendering the HTML <br /> returns RedirectToAction(ActionName:["name"] , ControllerName : ["name"]) |Redirect to action from the specified URL defined in RouteConfig file <br/>returns RedirectToRoute(new{controller = ["controllename"], action = ["About"] })|returns http status code like 200 / 404 / 500|
  
 We could Pass parameters to actions by : 
 
@@ -62,8 +62,9 @@ We could Pass parameters to actions by :
       Server time is: @((DateTime)ViewData["ServerTime"])
     </p>
 
-  *Ps : @ in the html file means dynamic content*
-### Routing
+  *Ps : @ in the html file means server-side code * [see more]()
+  
+  ### Routing
 
    Routing is responsible for matching incoming HTTP requests and dispatching those requests to the app's executable endpoints.
    
@@ -131,8 +132,13 @@ Example:
     into objects that the controller can handle
 ## View Component
 
-@ code: C# code 
-@ comment @
+### Razor
+
+**@ code**: C# code 
+<br/>
+**@ comment @**
+
+**@ \* Multiple <br/> lines comment \* @**
 
 ### Helpers 
 
