@@ -91,7 +91,31 @@ After adding stored procedure in the sql server our SqlCommand becomes:
 ####  2- Create a DBcontext for your database 
     ! you should first create a database in the sql server  than add the connectionString to your dbcontext class
     
-   dbcontext calss : ...
+  ##### dbcontext calss : 
+    It is the primary class that is responsible for interacting with data as object. It often referred to as context.
+     It is a wrapper around ObjectContext which is useful in all the development models: Code First, Model First and Database First.
+  - Role: 
+    - **Querying** : converts database values into entity objects and vice versa.
+    - **Change Tracking** : It keeps track of changes occurred in the entities after it has been querying from the database.
+    - **Persisting Data** : It also performs the Insert, update and delete operations to the database, based on the entity states.
+
+###### Example 
+```C#
+public class ForumContext : DbContext
+{ public DbSet<Category> Categories { get; set; }
+public DbSet<Post> Posts { get; set; }
+public DbSet<PostAnswer> PostAnswer { get; set; }
+public DbSet<Tag> Tags { get; set; }
+}
+```
+###### Methods Of DBContext : 
+|Entry|Entry\<TEntity\>|Set(Type)|Set\<TEntity\>()|SaveChanges()|
+|---|---|---|---|---|
+
+###### Methods Of DBSet : 
+|Add|Attach(Entity)|Create|Find(int)|Include|Remove|SqlQuery|
+|---|---|---|---|---|---|---|
+
     
 #### 3- Migrations 
   In your package manager tap those cmd: 
@@ -115,7 +139,7 @@ This helps you add all the updates to your server
 
 ### Operation on database 
 
-#### EDM  
+### EDM  
 
  - EDM Structure : 
     -  **EntityContainer** : EntityContainer EntityContainer is a wrapper for EntitySets and AssociationSets . It is an entry point for querying the model.
@@ -147,3 +171,36 @@ This helps you add all the updates to your server
   
    
    ``` 
+    -Projection
+    
+|First/FirstOrDefault|Single/SingleOrDefault|ToList|GroupBy|OrderBy|
+|---|---|---|---|---|
+|Returns the first row from the query result <br/>The difference = First() will throw an exception and FirstOrDefault () returns default value (null) if there is no result data|when we are sure that the result would contain only one element <br/> Single or SingleOrDefault will throw  anexception, if the result contains more than one element.|Converts the result to a list|Groups the result by a creteria|Sort the result by a criteria|
+       
+- Entity SQL : It returns ObjectQuery instead of Iqueryable
+   ```C#
+   //You need ObjectContext to create a query using Entity SQL.
+     string command = " select VALUE st from SchoolDBEntities.Students " +
+                        "AS st WHERE st.StudentName ==  'Bill'";
+   
+   var obj = (ctx as IObjectContextAdapter).ObjectContext;
+   
+   ObjectQuery<Student> student = obj.CreateQuery<Student>(command);
+   }
+  
+   
+   ```
+- Native SQL
+    ```C#
+   
+   using( var ctx = new SchoolDBEntities() ) {
+   
+    var student = ctx.Students.SqlQuery("Select * from Students where StudentId=@id", new SqlParameter('@id',1)).FirstOrDefault();
+   }
+  
+   
+   ``` 
+   
+  CRUD Operations
+  
+  
