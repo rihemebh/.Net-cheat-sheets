@@ -42,7 +42,7 @@
 
 After adding stored procedure in the sql server our SqlCommand becomes: 
 
-
+```C#
                 SqlCommand cmd = new SqlCommand()
                 {
                     CommandText = "<stored procedure namme>",
@@ -62,7 +62,7 @@ After adding stored procedure in the sql server our SqlCommand becomes:
                 };
                 
                 cmd.Parameters.Add(param);
-
+```
 # Entity Framework 
 
       Entity Framework (EF) is an open source object-relational mapping (ORM) framework for Ado.NET
@@ -115,5 +115,5 @@ This helps you add all the updates to your server
 
 ### Operation on database 
 
-- EDM 
-- LinQ to Entity 
+- EDM  ..
+- LinQ to Entity ..
