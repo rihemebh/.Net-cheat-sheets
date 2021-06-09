@@ -62,7 +62,7 @@ We could Pass parameters to actions by :
       Server time is: @((DateTime)ViewData["ServerTime"])
     </p>
 
-  *Ps : @ in the html file means server-side code * [see more]()
+  *Ps : @ in the html file means server-side code * [see more](https://github.com/rihemebh/.Net-cheat-sheets/blob/main/ASP.net/README.md#razor)
   
   ### Routing
 
@@ -134,17 +134,63 @@ Example:
 
 ### Razor
 
-**@ code**: C# code 
-<br/>
-**@ comment @**
+- Comments 
+**@ \* comment text \* @**
 
-**@ \* Multiple <br/> lines comment \* @**
+- Code 
 
-### Helpers 
+**@ code**: 
 
-@HTML.ActionLink()
+Example 1 : Displaying dynamic data 
+``` razor
+@* if viewBag.price = 9 *@
+@ViewBag.Price * 2  @* Result: 9 * 2 *@
+@(ViewBag.Price * 2) @* Result: 18 *@
 
-@URL.Action() 
+```
 
-...
+Example 2 : if we want to write a bloc of code inside the HTML
+
+``` razor
+@{
+@* code C# *@
+}
+
+```
+
+### HTML Helpers
+
+Razor Generate html code from helpers 
+
+#### @HTML.ActionLink()
+``` razor
+@HTML.ActionLink("Click here to view photo 1", "Display" , "Photo" , new { id = 1}) 
+ 
+@* equivalent to *@
+
+<a href="/photo/display/1">Click here to view photo 1<a/>
+```
+#### @URL.Action() 
+``` razor
+<img src="@Url.Action('GetImage', new {id = 1})" />
+ 
+@* equivalent to *@
+
+<img src="/photo/getimage/1" />
+```
+
+## Models 
+
+**In the Controller :**
+
+``` C#
+return View(<ModelName>);
+//Returing a view with a model 
+```
+
+**In the View :**
+
+``` razor
+@Model.<attributname>
+```
 
