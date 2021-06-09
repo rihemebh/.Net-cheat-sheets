@@ -17,9 +17,9 @@ ASP stands for : **A**ctive **S**erver **P**ages
  
 
  
-## Controllers 
+## 1. Controllers 
 
-### Actions : 
+### 1.1. Actions : 
 Actions are the Methods within a controller <br/>
 Every method could return an object that implements the **IActionResult** : 
 
@@ -36,27 +36,27 @@ We could Pass parameters to actions by :
 
  
 
-## Passing data to the view: 
+### 1.2. Passing data to the view: 
 
-### Adding Information: (In the controller)
+#### Adding Information: (In the controller)
   
- #### ViewBag 
+ ##### ViewBag 
      ViewBag.Message = “some text”;
      ViewBag.ServerTime = DateTime.Now;
-  #### ViewData 
+  ##### ViewData 
   
       ViewData["Message"] = "some text";
       ViewData["ServerTime"] = DateTime.Now;
       
 
-### Retrieving Information: (In the view)
- #### ViewBag 
+#### Retrieving Information: (In the view)
+ ##### ViewBag 
      <p>
     Message is: @ViewBag.Message
 
     Server time is: @ViewBag.ServerTime.ToString()
     </p>
- #### ViewData 
+ ##### ViewData 
     <p>
       Message is: @ViewData["Message"] //ViewBag.Message
       Server time is: @((DateTime)ViewData["ServerTime"])
@@ -64,7 +64,7 @@ We could Pass parameters to actions by :
 
   *Ps : @ in the html file means server-side code * [see more](https://github.com/rihemebh/.Net-cheat-sheets/blob/main/ASP.net/README.md#razor)
   
-  ### Routing
+  ### 1.3. Routing
 
    Routing is responsible for matching incoming HTTP requests and dispatching those requests to the app's executable endpoints.
    
@@ -97,7 +97,8 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     });
 }
 ```
-**We can use annotaions instead of the declation   ** 
+**We can use annotaions instead of the declation** 
+<br/>
 Example:
 
 ```C#
@@ -130,13 +131,14 @@ Example:
 ### Model binding 
     ASP.NET Core MVC model binding converts client request data (form values, route data, query string parameters, HTTP headers) 
     into objects that the controller can handle
-## View Component
+## 2. View Component
 
-### Razor
+### 2.1. Razor
 
 - Comments 
-**@ \* comment text \* @**
-
+``` razor
+@* comment text *@
+``` 
 - Code 
 
 **@ code**: 
@@ -158,7 +160,7 @@ Example 2 : if we want to write a bloc of code inside the HTML
 
 ```
 
-### HTML Helpers
+### 2.2. HTML Helpers
 
 Razor Generate html code from helpers 
 
@@ -179,18 +181,85 @@ Razor Generate html code from helpers
 <img src="/photo/getimage/1" />
 ```
 
-## Models 
+## 3. Models 
+
+``` C#
+public class Student
+{   
+    
+    public int StudentId { get; set; }
+    public string Name { get; set;  }
+    public int Age { get; set;  }
+    public string Description { get; set;  }
+    public string Phone { get; set;  }
+    public string Email { get; set;  }
+    public bool State { get; set;  }
+}
+ 
+```
+
 
 **In the Controller :**
 
+
 ``` C#
-return View(<ModelName>);
-//Returing a view with a model 
+
+return View("<htmlFileName>", Student);
+ 
 ```
 
 **In the View :**
 
 ``` razor
-@Model.<attributname>
+@Model.Name
 ```
 
+## Forms
+
+### Diplaying a form : 
+
+``` razor
+@using (Html.BeginForm()){
+
+@*  generate a form from the model class  *@
+    @Html.EditorForModel()
+}
+```
+
+|Generate a Label| Generate Input field| Generate Checkbox Field | Form Validation |
+|---|---|----|---|
+|``@Html.LabelFor(model=> model.Name)``|``@Html.EditorFor(model=> model.Name)``|``@Html.checkboxFor(model=> model.state)``|``@Html.ValidationSummary()``|
+
+
+### Specify the action to be executed after submit 
+
+``C# Html.BeginForm("<actionName>","<ControllerName>")``
+ 
+### Annotions 
+=> Costumize the form fields
+
+``` C#
+public class Student
+{   
+    
+    public int StudentId { get; set; }
+    [Required]
+    [Display(Name="My Name")] // to costumize the label in the form 
+    public string Name { get; set;  }
+    
+    [Range(0,100)] // specify min nd max
+    public int Age { get; set;  }
+    
+    [DataType(DataType.multilineText)] // to generate a textarea in the form 
+    public string Description { get; set;  }
+    
+    [StringLength(8)] 
+    public string phone { get; set;  }
+    
+    [RegularExpression("^.+@.+(\.).+$")] 
+    public string email { get; set;  }
+    
+    public bool State { get; set;  }
+}
+ 
+```
