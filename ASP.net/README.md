@@ -233,7 +233,7 @@ return View("<htmlFileName>", Student);
 
 |Generate a Label| Generate Input field| Generate Checkbox Field | Generate Radiobox Field| Generate DropedpwnList  |Form Validation |
 |---|---|----|---|---|---|
-|`` @Html.LabelFor(model=> model.Name)``|``@Html.EditorFor(model=> model.Name)``|``@Html.checkboxFor(model=> model.state)``|``@Html.RadioButtonFor(model=> model.state)``|``@Html.DropdownListFor(model=>model.attr, new SelectItelList[]{@* putting data *@}, "Message``|``@Html.ValidationSummary()``|
+|`` @Html.LabelFor(model=> model.Name)``|``@Html.EditorFor(model=> model.Name)``|``@Html.checkboxFor(model=> model.state)``|``@Html.RadioButtonFor(model=> model.state)``|``@Html.DropdownListFor(model=>model.attr, new SelectItelList[]{@* putting data *@}, "Message")``|``@Html.ValidationSummary()`` <br/> ``@Html.ValidationMessageFor(model => model.Name)``|
 
 
 ### Specify the action to be executed after submit 
