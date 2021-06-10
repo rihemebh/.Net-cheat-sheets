@@ -69,7 +69,7 @@ We could Pass parameters to actions by :
     </p>
    ```
 
-  *Ps : @ in the html file means server-side code * [see more](https://github.com/rihemebh/.Net-cheat-sheets/blob/main/ASP.net/README.md#razor)
+  *Ps : @ in the html file means server-side code * [see more](https://github.com/rihemebh/.Net-cheat-sheets/blob/main/ASP.net/README.md#21-razor)
   
   ### 1.3. Routing
 
