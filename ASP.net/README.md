@@ -231,9 +231,9 @@ return View("<htmlFileName>", Student);
 }
 ```
 
-|Generate a Label| Generate Input field| Generate Checkbox Field |Generate Radiobox Field| Form Validation |
-|---|---|----|---|---|
-|`` @Html.LabelFor(model=> model.Name)``|``@Html.EditorFor(model=> model.Name)``|``@Html.checkboxFor(model=> model.state)``|``@Html.checkboxFor(model=> model.state)``|``@Html.ValidationSummary()``|
+|Generate a Label| Generate Input field| Generate Checkbox Field | Generate Radiobox Field| Generate DropedpwnList  |Form Validation |
+|---|---|----|---|---|---|
+|`` @Html.LabelFor(model=> model.Name)``|``@Html.EditorFor(model=> model.Name)``|``@Html.checkboxFor(model=> model.state)``|``@Html.RadioButtonFor(model=> model.state)``|``@Html.DropdownListFor(model=>model.attr, new SelectItelList[]{@* putting data *@}, "Message``|``@Html.ValidationSummary()``|
 
 
 ### Specify the action to be executed after submit 
