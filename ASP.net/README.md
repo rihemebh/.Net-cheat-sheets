@@ -81,7 +81,7 @@ We could Pass parameters to actions by :
 
 #### Route Stucture : 
 
-``/{controller}/{action}/{id}``
+``/{controller}/{action}/{param}``
 
 #### Declaration: 
 In startups.cs file : 
