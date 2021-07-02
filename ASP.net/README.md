@@ -243,7 +243,7 @@ Html.BeginForm("<actionName>","<ControllerName>")
 ```
  
 ### Annotions 
-=> Costumize the form fields
+=> Customize the form fields
 
 ``` C#
 public class Student
